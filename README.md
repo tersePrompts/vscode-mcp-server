@@ -6,6 +6,12 @@ This extension can allow for execution of shell commands. This means that there 
 
 PRs are welcome!
 
+## Why you might install this MCP server
+
+- **Code agents that don’t run VS Code or IntelliJ.** Claude or any other client can talk to this extension instead of embedding the IDE itself, so the coding agent can live inside a chat app or automation pipeline while still accessing the workspace via MCP tools.
+- **Headless workflows and CI-friendly diagnostics.** Trigger `get_diagnostics_code`, file edits, or `search_symbols_code` from scripts or bots that do not host a UI; the MCP server simply acts as an HTTP bridge into VS Code’s workspace.
+- **Fill the gaps between IDE platforms.** Use this extension when you need VS Code-specific tools (symbol search, glob helpers, tree views) but your agent is already configured to work with IntelliJ’s MCP server; the new guide explains how both can coexist and when to switch between them (`docs/intellij-vscode-mcp.md`).
+
 ## Demo Video
 https://github.com/user-attachments/assets/20b87dfb-fc39-4710-a910-b9481dde1e90
 
@@ -272,6 +278,10 @@ http://[your-host]:3000/mcp
 ```
 
 Remember that you need to enable the server first by clicking on the status bar item!
+
+## Guides
+
+- **IntelliJ ↔ VS Code MCP workflows**: `docs/intellij-vscode-mcp.md` explains why you might connect to JetBrains’ built-in MCP server, how the Auto-Configure workflow works, where manual JSON edits go, and what VS Code can do when it acts as an MCP server itself.
 
 ## Contributing
 
