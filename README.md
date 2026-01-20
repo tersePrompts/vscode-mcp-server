@@ -91,6 +91,9 @@ The VS Code MCP Server extension implements an MCP-compliant server that allows 
 - **Move files and directories** with proper refactoring support for imports
 - **Rename files and directories** with automatic reference updates
 - **Copy files** to new locations (files only, not directories)
+- **Search files with glob patterns** to match extensions or directories quickly (find_files_by_glob)
+- **Find files by name keyword** for fast name-based lookup (find_files_by_name_keyword)
+- **Render directory trees** to see the workspace hierarchy before digging in (list_directory_tree)
 - **Search for symbols** across your workspace
 - **Get symbol definitions** and hover information by line and symbol name
 - **Create new files** using VS Code's WorkspaceEdit API
@@ -141,6 +144,22 @@ The extension creates an MCP server that:
     - `sourcePath`: The path of the file to copy
     - `targetPath`: The path where the copy should be created
     - `overwrite` (optional): Whether to overwrite if target already exists (default: false)
+
+- **find_files_by_glob**: Finds files matching a glob pattern, optionally skipping other paths
+  - Parameters:
+    - `pattern`: Glob pattern relative to the workspace (e.g., `**/*.ts`)
+    - `exclude` (optional): Glob pattern for paths to ignore (e.g., `**/node_modules/**`)
+    - `maxResults` (optional): Upper limit of matches to return (default: 100)
+
+- **find_files_by_name_keyword**: Searches indexed file/directory names for a keyword
+  - Parameters:
+    - `keyword`: Keyword to match in names
+    - `maxResults` (optional): Upper limit of matches to return (default: 100)
+
+- **list_directory_tree**: Renders an ASCII-style directory tree from the starting path
+  - Parameters:
+    - `path` (optional): Workspace path to render (default: `.`)
+    - `maxDepth` (optional): Maximum depth to traverse (default: 3, max 8)
 
 ### Edit Tools
 - **create_file_code**: Creates a new file using VS Code's WorkspaceEdit API
