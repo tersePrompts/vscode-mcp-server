@@ -588,11 +588,9 @@ async function searchWorkspaceFilesByNameKeyword(keyword: string, maxResults: nu
         throw new Error('Keyword cannot be empty');
     }
 
-    const folder = getWorkspaceFolderOrThrow();
     const escapedKeyword = escapeGlobCharacters(trimmedKeyword);
     const pattern = `**/*${escapedKeyword}*`;
-    const relativePattern = new vscode.RelativePattern(folder, pattern);
-    const uris = await vscode.workspace.findFiles(relativePattern, undefined, maxResults);
+    const uris = await vscode.workspace.findFiles(pattern, undefined, maxResults);
     return uris.map(getWorkspaceRelativePath);
 }
 

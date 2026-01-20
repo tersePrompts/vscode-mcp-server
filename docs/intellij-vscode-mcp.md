@@ -34,6 +34,10 @@ Install the standalone “MCP Server” plugin from the JetBrains Marketplace, r
 - The workspace can still act as an MCP server by installing extensions such as this one, which expose file listing, editing, diagnostics, and symbol tools to agents.[^4]
 - Once the extension is running, agents can call `list_files_code`, `read_file_code`, `replace_lines_code`, `get_diagnostics_code`, `search_symbols_code`, and the new glob/keyword/tree helpers to explore a project even when IntelliJ is not in use.
 
+### Debug logging
+
+If you need to trace exactly what the MCP client sends, enable the `vscode-mcp-server.logToolCalls` setting. Open Settings (Ctrl+, / ⌘+,), search for “MCP Server log tool calls”, toggle the option, then restart the extension via the status bar toggle or the `Toggle MCP Server` command so the flag takes effect. The tool calls appear in **View → Output → MCP Server Extension**, and Cursor users will see the same toggle because Cursor shares the same settings namespace.
+
 ## References
 
 [^1]: https://www.jetbrains.com/help/idea/mcp-server.html

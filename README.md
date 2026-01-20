@@ -12,6 +12,10 @@ PRs are welcome!
 - **Headless workflows and CI-friendly diagnostics.** Trigger `get_diagnostics_code`, file edits, or `search_symbols_code` from scripts or bots that do not host a UI; the MCP server simply acts as an HTTP bridge into VS Code’s workspace.
 - **Fill the gaps between IDE platforms.** Use this extension when you need VS Code-specific tools (symbol search, glob helpers, tree views) but your agent is already configured to work with IntelliJ’s MCP server; the new guide explains how both can coexist and when to switch between them (`docs/intellij-vscode-mcp.md`).
 
+### Debug logging for tool calls
+
+Enable the `vscode-mcp-server.logToolCalls` setting to emit every MCP tool invocation (name + args) into the **MCP Server Extension** output channel. Open **Settings** (Ctrl+, or ⌘+,), search for "MCP Server log tool calls", toggle it on, and then click the status bar item (or run the "Toggle MCP Server" command) to restart the server so the new flag takes effect. Cursor's settings UI uses the same configuration keys, so the same toggle appears there when you open Settings or use the `Ctrl+,` shortcut and search for the setting. Once enabled, open **View → Output**, select "MCP Server Extension", and you’ll see the inbound tool calls for debugging.
+
 ## Demo Video
 https://github.com/user-attachments/assets/20b87dfb-fc39-4710-a910-b9481dde1e90
 
